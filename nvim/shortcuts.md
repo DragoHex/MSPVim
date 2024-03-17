@@ -1,0 +1,24 @@
+## NVIM-Tree
+Source: https://docs.rockylinux.org/books/nvchad/nvchad_ui/nvimtree/
+- g?: to get list of shortcuts
+- <C-n>: open file tree
+- <C-h>: move to the tree pane
+- <C-l>: move to the editor pane
+- <C-k>: view file details
+- <CR> or o: open file
+- <TAB>: open while keeping the cursor in nvim-tree
+- <C-v>: open in vertical split
+- <C-x>: open in horitxontal split
+- <leader>bq: close current buffer
+- <leader>bn: go to next buffer
+- <leader>bp: go to previous buffer
+- a: to add a new file or a folder (To add a folder end its name with `/`)
+- d: delete
+- c: copy
+- x: cut
+- p: paste
+- y: copy only the file name
+    - Y: copy the relative path
+    - gy: copy absolute path
+- r: rename
+- f: filter
