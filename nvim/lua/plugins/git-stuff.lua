@@ -1,6 +1,6 @@
 return {
   {
-    "tpope/vim-fugitive"
+    "tpope/vim-fugitive",
   },
   {
     "lewis6991/gitsigns.nvim",
@@ -16,6 +16,6 @@ return {
       vim.keymap.set("n", "<leader>gd", ":Git diff<CR>", {})
       vim.keymap.set("n", "<leader>gg", ":Git log --graph --oneline<CR>", {})
       vim.keymap.set("n", "<leader>gs", ":Git status<CR>", {})
-    end
-  }
+    end,
+  },
 }

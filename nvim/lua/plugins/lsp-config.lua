@@ -9,8 +9,8 @@ return {
             package_installed = "✓",
             package_pending = "➜",
             package_uninstalled = "✗",
-          }
-        }
+          },
+        },
       })
     end,
   },
@@ -25,30 +25,39 @@ return {
         ensure_installed = {
           "lua_ls",
           "golangci_lint_ls",
-          "gopls"
-        }
+          "gopls",
+        },
       })
-    end
+    end,
   },
   {
     "neovim/nvim-lspconfig",
     lazy = false,
     config = function()
-      local capabilities = require('cmp_nvim_lsp').default_capabilities()
+      local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
       local lspconfig = require("lspconfig")
       lspconfig.tsserver.setup({
-        capabilities = capabilities
+        capabilities = capabilities,
       })
       lspconfig.html.setup({
-        capabilities = capabilities
+        capabilities = capabilities,
       })
       lspconfig.lua_ls.setup({
-        capabilities = capabilities
-      })
-      lspconfig.gopls.setup {
         capabilities = capabilities,
-        cmd = {"gopls"},
+        format = {
+          enable = true,
+          -- Put format options here
+          -- NOTE: the value should be STRING!!
+          defaultConfig = {
+            indent_style = "space",
+            indent_size = "2",
+          },
+        },
+      })
+      lspconfig.gopls.setup({
+        capabilities = capabilities,
+        cmd = { "gopls" },
         filetypes = { "go", "gomod", "gowork", "gotmpl" },
         settings = {
           gopls = {
@@ -58,30 +67,41 @@ return {
             },
           },
         },
-      }
+      })
       lspconfig.golangci_lint_ls.setup({
-        capabilities = capabilities
+        capabilities = capabilities,
       })
 
       -- Change the Diagnostic symbols in the sign column (gutter)
-    -- (not in youtube nvim video)
-    local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
-    for type, icon in pairs(signs) do
-      local hl = "DiagnosticSign" .. type
-      vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-    end
+      -- (not in youtube nvim video)
+      local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
+      for type, icon in pairs(signs) do
+        local hl = "DiagnosticSign" .. type
+        vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+      end
 
       vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
       vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, {})
-      vim.keymap.set("n", "<leader>bd", vim.lsp.buf.definition, {})
-      vim.keymap.set("n", "<leader>br", vim.lsp.buf.references, {})
+      vim.keymap.set("n", "<leader>bd", "<cmd>Telescope lsp_definitions<CR>", {})
+      -- vim.keymap.set("n", "<leader>bd", vim.lsp.buf.definition, {})
+      vim.keymap.set("n", "<leader>br", "<cmd>Telescope lsp_references<CR>", {})
+      -- vim.keymap.set("n", "<leader>br", vim.lsp.buf.references, {})
       vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
     end,
   },
   {
-    "m4xshen/autoclose.nvim",     -- for closing braces and indenting
-    config = function ()
+    "rmagatti/goto-preview", -- For quick goto preview
+    config = function()
+      local gotoprev = require("goto-preview")
+      gotoprev.setup({
+        default_mappings = true, -- Bind default mappings
+      })
+    end,
+  },
+  {
+    "m4xshen/autoclose.nvim", -- for closing braces and indenting
+    config = function()
       require("autoclose").setup()
-    end
-  }
+    end,
+  },
 }

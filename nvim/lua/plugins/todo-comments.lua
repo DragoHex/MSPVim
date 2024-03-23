@@ -2,7 +2,7 @@ return {
   {
     "folke/todo-comments.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
-    config = function ()
+    config = function()
       local todo = require("todo-comments")
       vim.keymap.set("n", "]t", function()
         todo.jump_next()
@@ -12,8 +12,8 @@ return {
         todo.jump_prev()
       end, { desc = "Previous todo comment" })
 
-      vim.keymap.set("n", "<leader>tl", ":TodoLocList<CR>")
+      vim.keymap.set("n", "<leader>tl", "<cmd>TodoTelescope<CR>")
       todo.setup()
-    end
+    end,
   },
 }
