@@ -66,6 +66,16 @@ Source: https://docs.rockylinux.org/books/nvchad/nvchad_ui/nvimtree/
 - \<leader\>gc: gitc commit
 - \<leader\>gp: preview hunk
 
+## Terminal
+- <leader>tt: open terminal or toggle terminal
+- <leader>tv: open a vertical terminal
+- <leader>tf: open floating terminal
+- <leader>tg: toggle lazy git
+- <C-t>: toggle terminal in terminal mode
+- <C-q>: exit terminal in terminal mode
+- <C-h>, <C-k>, <C-l>, <C-j>: navigate over terminal
+- <C-w>: enter normal mode in terminal
+
 ## Autocomplete
 - \<C-j\>: select next item
 - \<C-k\>: select prev item
@@ -83,7 +93,7 @@ Source: https://docs.rockylinux.org/books/nvchad/nvchad_ui/nvimtree/
 - \<leader\>ca: open code actions
 - \<leader\>cf: format code 
 
-go.nvim specific keybindings
+## go.nvim specific keybindings
 - \<leader\>ce: Add the `if error` block
 - \<leader\>cag: Add json tags for the structs
 - \<leader\>crg: Remove json tags
