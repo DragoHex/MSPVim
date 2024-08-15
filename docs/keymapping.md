@@ -56,6 +56,11 @@ Source: https://docs.rockylinux.org/books/nvchad/nvchad_ui/nvimtree/
 - zj: move down to the start of next fold
 - zk: move up to the end of the previous fold
 
+## Aerial Tag Bar
+- \<leader\>a: toggle tag bar
+- \{: jump to previous function definition
+- \}: jump to next function definition
+
 ## Git-Stuff:
 - \<leader\>gd: git diff
 - \<leader\>gg: git graph
@@ -123,3 +128,7 @@ Keymaps created only for the most used functionalities.
 - \<leader\>do: step over
 - \<leader\>dh: toggle hide/show dap-ui
 - \<leader\>dx: terminate debugging
+
+## Misc
+- To update the plugins run command `:Lazy` and hit `U`.
+- To update LSPs run command `:Mason` and hit `U`.
