@@ -92,6 +92,7 @@ Source: https://docs.rockylinux.org/books/nvchad/nvchad_ui/nvimtree/
 
 ## LSP
 - K: hover action
+- \<leader\>e: to open diagnostics on that particular line in a floating window
 - \<leader\>rn: smart rename every instance of the variable
 - \<leader\>bd: take to the definition
 - \<leader\>br: list the references

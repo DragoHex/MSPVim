@@ -9,7 +9,8 @@ return {
     require("nvim-tree").setup({
       update_focused_file = {
         enable = true,
-        update_cwd = true,
+				-- Un-comment to set the active dir as cwd
+        -- update_cwd = true,
       },
     })
   end,
