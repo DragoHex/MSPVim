@@ -73,13 +73,17 @@ return {
       })
 
       -- Change the Diagnostic symbols in the sign column (gutter)
-      -- (not in youtube nvim video)
       local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
       for type, icon in pairs(signs) do
         local hl = "DiagnosticSign" .. type
         vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
       end
-
+			-- Set border for LSP hover window
+			vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
+				vim.lsp.handlers.hover, {
+					border = "rounded"  -- You can use "single", "double", "rounded", etc.
+				}
+			)
       vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
       vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, {})
       vim.keymap.set("n", "<leader>bd", "<cmd>Telescope lsp_definitions<CR>", {})

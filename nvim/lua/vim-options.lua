@@ -16,6 +16,9 @@ vim.keymap.set("n", "<leader>bp", ":bp<CR>")
 vim.keymap.set("n", "<leader>bn", ":bn<CR>")
 vim.keymap.set("n", "<leader>bq", ":bd<CR>")
 
+-- open diagnostics in floating window
+vim.keymap.set("n", "<leader>e", ":lua vim.diagnostic.open_float(0, {scope=\"line\", border=\"rounded\"})<CR>")
+
 vim.keymap.set("n", "<leader>h", ":nohlsearch<CR>")
 vim.wo.number = true
 
