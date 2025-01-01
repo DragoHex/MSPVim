@@ -24,6 +24,8 @@ Source: https://docs.rockylinux.org/books/nvchad/nvchad_ui/nvimtree/
 - f: filter
 
 ## Telescope
+- \<leader\>fe: open diagnostic for the current file
+- \<leader\>de: list errors in the current file
 - \<leader\>ff: fuzzy find file
 - \<leader\>fg: live_grep
 - \<leader\>fa: live_grep with args
@@ -98,6 +100,7 @@ Source: https://docs.rockylinux.org/books/nvchad/nvchad_ui/nvimtree/
 - \<leader\>br: list the references
 - \<leader\>ca: open code actions
 - \<leader\>cf: format code 
+- \#: to highlight and move cursor to next instance of a variable
 
 ## go.nvim specific keybindings
 - \<leader\>ce: Add the `if error` block
@@ -131,5 +134,7 @@ Keymaps created only for the most used functionalities.
 - \<leader\>dx: terminate debugging
 
 ## Misc
+- \<leader\>cp: copy complete file path
+- \<leader\>cr: copy relative file path
 - To update the plugins run command `:Lazy` and hit `U`.
 - To update LSPs run command `:Mason` and hit `U`.
