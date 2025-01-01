@@ -60,6 +60,23 @@ return {
 				{ noremap = true }
 			)
 
+			-- INFO: Uncomment to enable search for ignored/hidden files
+			-- Comment the the same keymapping when doing so
+
+			-- vim.keymap.set("n", "<leader>ff", function()
+			-- 	builtin.find_files({
+			-- 		no_ignore = true, -- Include ignored files
+			-- 		hidden = true, -- Optionally include hidden files
+			-- 	})
+			-- end, { desc = "Find all files" })
+			-- vim.keymap.set("n", "<leader>fg", function()
+			-- 	builtin.live_grep({
+			-- 		additional_args = function()
+			-- 			return { "--no-ignore" }
+			-- 		end,
+			-- 	})
+			-- end, { desc = "Live grep for all files" })
+
 			require("telescope").load_extension("ui-select")
 		end,
 	},
