@@ -5,10 +5,11 @@ Source: https://docs.rockylinux.org/books/nvchad/nvchad_ui/nvimtree/
 - \<C-h\>: move to the tree pane
 - \<C-l\>: move to the editor pane
 - \<C-k\>: view file details
+- \<C-i\>: to fold or unfold a folder
 - \<CR\> or o: open file
 - \<TAB\>: open while keeping the cursor in nvim-tree
 - \<C-v\>: open in vertical split
-- \<C-x\>: open in horitxontal split
+- \<C-x\>: open in horitzontal split
 - \<leader\>bq: close current buffer
 - \<leader\>bn: go to next buffer
 - \<leader\>bp: go to previous buffer
@@ -22,6 +23,8 @@ Source: https://docs.rockylinux.org/books/nvchad/nvchad_ui/nvimtree/
     - gy: copy absolute path
 - r: rename
 - f: filter
+- H: to toggle hidden dotfiles
+- I: to toggle hidden gitignore files
 
 ## Telescope
 - \<leader\>fe: open diagnostic for the current file
