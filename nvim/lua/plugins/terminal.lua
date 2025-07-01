@@ -18,7 +18,12 @@ return {
 			-- if you only want these mappings for toggle term use term://*toggleterm#* instead
 			vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
 			vim.api.nvim_set_keymap("n", "<leader>tt", [[<Cmd>ToggleTerm<CR>]], { noremap = true, silent = true })
-			vim.api.nvim_set_keymap("n", "<leader>tv", [[<Cmd>ToggleTerm direction=vertical size=60<CR>]], { noremap = true, silent = true })
+			vim.api.nvim_set_keymap(
+				"n",
+				"<leader>tv",
+				[[<Cmd>ToggleTerm direction=vertical size=60<CR>]],
+				{ noremap = true, silent = true }
+			)
 
 			local Terminal = require("toggleterm.terminal").Terminal
 
@@ -41,6 +46,7 @@ return {
 			function _floating_terminal_toggle()
 				floatingterminal:toggle()
 			end
+
 			vim.api.nvim_set_keymap(
 				"n",
 				"<leader>tf",
@@ -81,6 +87,45 @@ return {
 				"n",
 				"<leader>tg",
 				"<cmd>lua _lazygit_toggle()<CR>",
+				{ noremap = true, silent = true }
+			)
+
+			local gemini = Terminal:new({
+				cmd = "gemini",
+				dir = "git_dir",
+				direction = "vertical", -- or "horizontal"
+				on_open = function(term)
+					vim.cmd("startinsert!")
+
+					-- Set 'q' to close the terminal
+					vim.api.nvim_buf_set_keymap(
+						term.bufnr,
+						"n",
+						"q",
+						"<cmd>close<CR>",
+						{ noremap = true, silent = true }
+					)
+
+					-- Resize terminal split after a short delay
+					vim.defer_fn(function()
+						vim.cmd("vertical resize 69") -- for vertical splits
+						-- vim.cmd("resize 40")        -- use this instead for horizontal splits
+					end, 50)                  -- delay in ms to allow split to appear
+				end,
+
+				on_close = function(term)
+					vim.cmd("startinsert!")
+				end,
+			})
+
+			function _gemini_toggle()
+				gemini:toggle()
+			end
+
+			vim.api.nvim_set_keymap(
+				"n",
+				"<leader>ta",
+				"<cmd>lua _gemini_toggle()<CR>",
 				{ noremap = true, silent = true }
 			)
 		end,
