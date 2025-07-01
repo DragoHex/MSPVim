@@ -34,6 +34,8 @@ Source: https://docs.rockylinux.org/books/nvchad/nvchad_ui/nvimtree/
 - \<leader\>fa: live_grep with args
 - \<leader\>fb: view active buffers
 - \<leader\>fh: view help for different commands
+- \<C-p\>: for selecting previous in telescope view
+- \<C-n\>: for selecting next in telescope view
 
 ## Commenting
 - gcc: toggle line comment in normal mode
@@ -81,6 +83,7 @@ Source: https://docs.rockylinux.org/books/nvchad/nvchad_ui/nvimtree/
 - <leader>tv: open a vertical terminal
 - <leader>tf: open floating terminal
 - <leader>tg: toggle lazy git
+- <leader>ta: toggle gemini-cli
 - <C-t>: toggle terminal in terminal mode
 - <C-q>: exit terminal in terminal mode
 - <C-h>, <C-k>, <C-l>, <C-j>: navigate over terminal
@@ -138,6 +141,8 @@ Keymaps created only for the most used functionalities.
 
 ## Misc
 - \<leader\>cp: copy complete file path
-- \<leader\>cr: copy relative file path
+- \<leader\>cr: In normal mode, copy relative file path
+- \<leader\>cr: In visual mode, copy relative file path along with selected line numbers
+- `gc` to open a link in browser.
 - To update the plugins run command `:Lazy` and hit `U`.
 - To update LSPs run command `:Mason` and hit `U`.

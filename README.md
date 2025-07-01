@@ -51,3 +51,5 @@ If these are not installed when setting up nvim, just execute the go-tools.sh to
 ```shell
 bash go-tools.sh
 ```
+## Auto Session
+- Auto sessions are stored in `~/.local/share/nvim/sessions`.

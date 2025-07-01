@@ -26,6 +26,7 @@ return {
 					"lua_ls",
 					"golangci_lint_ls",
 					"gopls",
+					-- "basedpyright",
 				},
 			})
 		end,
@@ -73,6 +74,20 @@ return {
 			lspconfig.golangci_lint_ls.setup({
 				capabilities = capabilities,
 			})
+
+			-- NOTE: uncomment to enable LSP for python
+			-- lspconfig.basedpyright.setup({
+			-- 	capabilities = capabilities,
+			-- 	settings = {
+			-- 		basedpyright = {
+			-- 			autoSearchPaths = true,
+			-- 			diagnosticMode = "workspace", -- You can set this to "openFilesOnly" if you prefer
+			-- 			useLibraryCodeForTypes = true,
+			-- 			typeCheckingMode = "basic", -- off/basic/standard
+			-- 		},
+			-- 	},
+			-- 	filetypes = { "python", "pyi" },
+			-- })
 
 			-- Change the Diagnostic symbols in the sign column (gutter)
 			local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
