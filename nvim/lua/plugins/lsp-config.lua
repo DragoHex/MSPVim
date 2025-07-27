@@ -96,9 +96,16 @@ return {
 				vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 			end
 			-- Set border for LSP hover window
-			vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-				border = "rounded", -- You can use "single", "double", "rounded", etc.
-			})
+			-- vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+			-- 	border = "rounded", -- You can use "single", "double", "rounded", etc.
+			-- })
+			local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
+			function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+				opts = opts or {}
+				opts.border = opts.border or "rounded"
+				return orig_util_open_floating_preview(contents, syntax, opts, ...)
+			end
+
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
 			vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, {})
 			vim.keymap.set("n", "<leader>bd", "<cmd>Telescope lsp_definitions<CR>", {})
@@ -106,6 +113,27 @@ return {
 			vim.keymap.set("n", "<leader>br", "<cmd>Telescope lsp_references<CR>", {})
 			-- vim.keymap.set("n", "<leader>br", vim.lsp.buf.references, {})
 			vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
+
+			-- Toggle diagnostics
+			local diagnostics_visible = true
+			vim.keymap.set("n", "<leader>td", function()
+				diagnostics_visible = not diagnostics_visible
+				if diagnostics_visible then
+					vim.diagnostic.config({
+						virtual_text = true,
+						signs = true,
+						underline = true,
+					})
+					vim.diagnostic.show()
+				else
+					vim.diagnostic.config({
+						virtual_text = false,
+						signs = false,
+						underline = false,
+					})
+					vim.diagnostic.hide()
+				end
+			end, { desc = "Toggle diagnostics visibility" })
 		end,
 	},
 	{
