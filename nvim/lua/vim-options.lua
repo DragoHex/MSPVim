@@ -38,8 +38,17 @@ vim.keymap.set("v", "<leader>cr", function()
 		start_line, end_line = end_line, start_line
 	end
 
-	local output = string.format("%s:%d-%d", file, start_line, end_line)
+	local output
+	if start_line == end_line then
+		output = string.format("%s:%d", file, start_line)
+	else
+		output = string.format("%s:%d-%d", file, start_line, end_line)
+	end
 	vim.fn.setreg("+", output)
+
+	-- exit visual mode
+	vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "n", false)
+
 	vim.notify("Copied: " .. output)
 end, { desc = "Copy relative path with line range", silent = true })
 
