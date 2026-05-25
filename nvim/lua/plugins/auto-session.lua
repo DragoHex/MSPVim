@@ -5,6 +5,7 @@ return {
 		"nvim-telescope/telescope.nvim", -- Only needed if you want to use session lens
 	},
 	config = function()
+		vim.o.sessionoptions = "blank,buffers,curdir,help,tabpages,winsize,terminal"
 		local opts = {
 			auto_session_enabled = true,
 			auto_session_root_dir = vim.fn.stdpath("data") .. "/sessions/",
