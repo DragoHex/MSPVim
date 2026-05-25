@@ -1,6 +1,6 @@
 ## Pre Configuration
 - Install [nerd fonts](https://www.nerdfonts.com/).
-- Install [neovim](https://github.com/neovim/neovim/blob/master/INSTALL.md#appimage-universal-linux-package), for linux it's recommended to use AppImage.
+- Install [neovim](https://github.com/neovim/neovim/blob/master/INSTALL.md#appimage-universal-linux-package) v0.12.2, for linux it's recommended to use AppImage.
 
 ## Installation
 Once neovim is installed place the `nvim` file in `~/.config` directory.
